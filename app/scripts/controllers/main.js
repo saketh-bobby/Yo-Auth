@@ -3,10 +3,10 @@
 
 angular
   .module('yoAuthApp')
-  .controller('MainController',MainController);
+  .controller('MainCtrl',MainCtrl);
 
-MainController.$inject = [];
+MainCtrl.$inject = [];
 
-function MainController(){
+function MainCtrl(){
 
 }

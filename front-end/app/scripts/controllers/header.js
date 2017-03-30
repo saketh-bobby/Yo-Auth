@@ -7,7 +7,7 @@
 
 
 	function HeaderCtrl($scope,authToken) {
-		$scope.isAuthenticated = authToken.isAuthenticated();
+		$scope.isAuthenticated = authToken.isAuthenticated;
 	}
 
 })();

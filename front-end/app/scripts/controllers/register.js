@@ -1,6 +1,6 @@
 'use strict';
 angular.module('yoAuthApp')
-  .controller('RegisterCtrl', function ($scope,$http,alert,authToken) {
+  .controller('RegisterCtrl', function ($rootScope,$scope,$http,alert,authToken) {
     $scope.submit = function(){
 			var url = '/register';
 			var user = {
@@ -10,8 +10,8 @@ angular.module('yoAuthApp')
     	$http
 				.post(url,user)
 		    .then(function(response){
-			    alert('success','Ok!','You are registered');
-			    authToken.setToken(response.data.token);
+			    alert('success','Account Created!','Welcome, '+response.data.user.email+'!');
+				    authToken.setToken(response.data.token);
 		    })
 		    .catch(function(err){
 					alert('warning','Oops!','Couldn\'t register');

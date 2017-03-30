@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('yoAuthApp')
-  .factory('authToken', function ($window) {
+  .factory('authToken', function ($window,$rootScope) {
 		var cachedToken,storage = $window.localStorage;
-  	return {
+  	var authToken = {
   		setToken:function(token){
   			cachedToken = token;
   			storage.setItem('userToken',token);
@@ -15,7 +15,14 @@ angular.module('yoAuthApp')
 				return cachedToken;
 			},
 		  isAuthenticated:function(){
-				return !!this.getToken();
+				return !!authToken.getToken();
+		  },
+		  removeToken:function(){
+		  	storage.removeItem('userToken');
+		  	cachedToken = null;
 		  }
-		};
+	  };
+
+	  return authToken;
+
   });

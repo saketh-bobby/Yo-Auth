@@ -2,6 +2,6 @@
 /dist
 /.tmp
 /.sass-cache
-/bower_components
+/front-end/app/bower_components
 /.idea
 /.editorconfig
